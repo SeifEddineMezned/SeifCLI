@@ -1,137 +1,103 @@
-🚀 SeifCLI – Your Smart Terminal Assistant
-────────────────────────────────────────────
+# SeifCLI
 
-<p align="center"> <img src="https://img.shields.io/badge/Local%20LLM-Ollama-green?style=for-the-badge&logo=OpenAI" /> <img src="https://img.shields.io/badge/Made%20With-Python-blue?style=for-the-badge&logo=python" /> <img src="https://img.shields.io/badge/UI-Rich-brightgreen?style=for-the-badge" /> <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" /> </p> <p align="center"> <img src="https://user-images.githubusercontent.com/your-gif-demo.gif" width="650" alt="SeifCLI Terminal Demo" /> </p>
-🧠 SeifCLI is your hacker-butler style AI terminal assistant powered by local LLMs like Mistral or LLaMA3 via Ollama, with built-in browser control, zero API keys, and stunning Rich terminal output.
+**SeifCLI is your smart terminal assistant — powered by local LLMs, styled with Rich, and able to control your browser and execute tasks like a personal hacker butler, with no API keys needed.**
 
-🔧 Features
-─────────────────────────────
+SeifCLI is a proof-of-concept AI-powered command-line assistant that understands natural language and automates web-based tasks. It uses local Large Language Models (LLMs) to interpret your commands, Selenium to control a web browser, and Rich to provide beautiful, interactive terminal output.
 
-✅ Natural Language Command Execution
-✅ Works Offline with Local LLMs (Ollama, llama.cpp)
-✅ Browser Control via Selenium
-✅ Modular "Skills" System
-✅ Rich-powered CLI Output
-✅ Interactive Chat with Memory
-✅ Supports OpenAI & Other Backends
-✅ Secure (Prompts Before Sensitive Actions)
+## Features 
 
-📦 Installation
-─────────────────────────────
+-   **Natural Language Commands**: Simply tell SeifCLI what to do in plain English.
+-   **Local First AI**: Powered by local LLMs like Ollama, ensuring privacy and offline capability. No API keys required by default.
+-   **Multiple LLM Backends**: Support for Ollama, OpenAI, and llama.cpp (with easy extensibility for more).
+-   **Browser Automation**: Can open, navigate, and interact with websites to perform tasks.
+-   **Rich Terminal UI**: Beautiful and informative output with progress indicators, formatted text, and more.
+-   **Interactive Chat Mode**: A conversational interface with memory and history management.
+-   **Extensible Skills System**: A modular plugin system that allows for new capabilities to be added easily.
+-   **Web Scraping**: Extract text and links from web pages with built-in skills.
+-   **File Operations**: Save and load text and JSON data with dedicated skills.
+-   **Configuration System**: Customize SeifCLI's behavior through a flexible configuration system.
+-   **Security Conscious**: Asks for confirmation before performing potentially sensitive actions.
 
-⚙️ Clone the repo
+## Installation
 
-bash
-Copy
-Edit
-git clone https://github.com/SeifEddineMezned/SeifCLI.git
-cd SeifCLI
-🧠 Install Ollama and pull a model
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd seifcli
+    ```
 
-bash
-Copy
-Edit
-ollama pull mistral
-📦 Install Python dependencies
+2.  **Install Ollama:**
+    Make sure you have [Ollama](https://ollama.ai/) installed and running. You'll also need to pull a model. We recommend starting with `mistral` or `llama3`.
+    ```bash
+    ollama pull mistral
+    ```
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-🛠️ Setup configuration
+3.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-bash
-Copy
-Edit
-python -m main setup
-🕹️ Usage
-─────────────────────────────
+4.  **Setup (optional):**
+    Run the setup command to configure SeifCLI with your preferences:
+    ```bash
+    python -m main setup
+    ```
 
-▶️ Run direct command
+## Usage
 
-bash
-Copy
-Edit
+### Run a command directly
+
+```bash
 python -m main run "Search for AI news on Google and take a screenshot."
-💬 Start interactive chat
+```
 
-bash
-Copy
-Edit
+### Start an interactive chat session
+
+```bash
 python -m main chat
-💾 With memory support
+```
 
-bash
-Copy
-Edit
-python -m main chat --save
-python -m main chat --load your_file.json
-🧠 Change LLM model/provider
+### Chat with conversation memory
 
-bash
-Copy
-Edit
+```bash
+python -m main chat --save 
+python -m main chat --load history_file.json 
+```
+
+### Use a specific LLM model or provider
+
+```bash
 python -m main chat --model llama3
-🧩 Built-in Skills
-─────────────────────────────
+python -m main run "Search for Python tutorials" --model mistral
+```
 
-Skill	Description
-SCREENSHOT	Takes webpage screenshots
-EXTRACT_TEXT	Extracts text using CSS selectors
-EXTRACT_LINKS	Extracts hyperlinks from pages
-SAVE_TEXT	Saves text to file
-LOAD_TEXT	Loads text from file
-SAVE_JSON	Dumps JSON to file
-LOAD_JSON	Loads JSON data from file
+## Available Skills
 
-🔌 Create Your Own Skills
-─────────────────────────────
+SeifCLI comes with several built-in skills:
 
-Just add a file inside seif/skills/ like this:
+- **SCREENSHOT**: Take screenshots of web pages
+- **EXTRACT_TEXT**: Extract text content from web pages using CSS selectors
+- **EXTRACT_LINKS**: Extract links from web pages
+- **SAVE_TEXT**: Save text content to a file
+- **LOAD_TEXT**: Load text content from a file
+- **SAVE_JSON**: Save data as JSON
+- **LOAD_JSON**: Load data from JSON files
 
-python
-Copy
-Edit
+## Creating Custom Skills
+
+You can easily extend SeifCLI by creating custom skills. Add a new Python file in the `seif/skills/` directory:
+
+```python
+
 from ..browser import Browser
 
-def greet(browser: Browser, name: str):
-    return f"Hello, {name}!"
+def my_awesome_function(browser: Browser, arg1: str, arg2: str = None):
+    """Description of what this skill does"""
+    
+    return "Result of the skill"
+
 
 SKILLS = {
-    "GREET": greet
+    "MY_AWESOME_SKILL": my_awesome_function
 }
-🌐 Project Structure
-─────────────────────────────
-
-📁 seif/ – Core logic
-📁 seif/skills – Modular skill plugins
-📄 main.py – Entry point
-📄 requirements.txt – Dependencies
-📄 config.example.json – Config template
-
-💡 Why SeifCLI?
-─────────────────────────────
-
-⚡ Fast local inference using Ollama
-
-🔐 100% private (no external APIs by default)
-
-🖥️ Terminal interface feels like a real AI hacker tool
-
-🔌 Easily extensible with new "skills"
-
-✨ Great for demos, automating workflows, or fun experimentation
-
-🤝 Contributing
-─────────────────────────────
-
-Got ideas or want to add a skill? Fork it, build it, and open a PR!
-
-📜 License
-─────────────────────────────
-
-MIT License © Seif Eddine Mezned
-
-🔥 Star this repo if you like it!
-
-<p align="center"> <img src="https://img.shields.io/github/stars/SeifEddineMezned/SeifCLI?style=social" /> </p>
+```
