@@ -1,0 +1,2 @@
+{"timestamp": 1751289250.925083, "step": "GOTO \"https://www.google.com/\"", "command": "GOTO", "args": ["https://www.google.com/"], "success": true, "error": null}
+{"timestamp": 1751289254.7033234, "step": "TYPE \"#tsf\" \"France\"", "command": "TYPE", "args": ["France"], "success": false, "error": "TYPE requires selector and text arguments"}

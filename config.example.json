@@ -1,0 +1,37 @@
+{
+  "llm": {
+    "provider": "ollama",
+    "model": "mistral",
+    "temperature": 0.7,
+    "max_tokens": 2000,
+    "api_key": ""
+  },
+  "browser": {
+    "headless": false,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+    "timeout": 30,
+    "screenshot_dir": "./screenshots"
+  },
+  "security": {
+    "safe_domains": [
+      "google.com",
+      "github.com",
+      "stackoverflow.com",
+      "wikipedia.org",
+      "python.org"
+    ],
+    "require_confirmation": true,
+    "confirmation_actions": ["CLICK", "TYPE", "GOTO"]
+  },
+  "memory": {
+    "storage_dir": "./memory",
+    "max_context_length": 4000,
+    "auto_summarize": true,
+    "summarization_threshold": 20
+  },
+  "logging": {
+    "enabled": true,
+    "level": "INFO",
+    "file": "seifcli.log"
+  }
+}

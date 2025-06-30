@@ -1,0 +1,31 @@
+# SeifCLI Dependencies
+
+# CLI Framework
+typer[all]==0.9.0
+
+# Terminal UI
+rich==13.7.0
+
+# Browser Automation
+selenium==4.15.2
+webdriver-manager==4.0.1
+selenium-stealth==1.0.6
+
+# Local LLM Integration
+ollama==0.1.7
+
+# Alternative LLM Options (uncomment as needed)
+# llama-cpp-python==0.2.20  # For llama.cpp support
+# openai==1.3.5             # For OpenAI API support
+# transformers==4.35.2      # For Hugging Face models
+
+# Utilities
+python-dotenv==1.0.0
+requests==2.31.0
+pathlib==1.0.1
+json5==0.9.14
+
+# Development Dependencies (optional)
+# pytest==7.4.3
+# black==23.11.0
+# flake8==6.1.0
