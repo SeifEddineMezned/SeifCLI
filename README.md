@@ -321,7 +321,7 @@ We welcome contributions! SeifCLI is designed to be:
 
 <div align="center">
 
-**Made with ❤️ by developers who believe terminals should be smarter**
+**Made with ❤️ by Seif Eddine Mezned**
 
 [⭐ Star this repo](../../stargazers) • [🐛 Report bugs](../../issues) • [💡 Request features](../../issues/new)
 
