@@ -317,11 +317,7 @@ We welcome contributions! SeifCLI is designed to be:
 
 ---
 
-## 📄 License
 
-[Add your license information here]
-
----
 
 <div align="center">
 
